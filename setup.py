@@ -6,8 +6,10 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        "yt-dlp>=2024.10.7",
-        "requests>=2.32.3",
+        "yt-dlp>=2024.10.7",  # This is the core dependency for downloading videos.
+        "requests>=2.32.3",  # Commonly used for making HTTP requests, often used for network operations in downloaders.
+        "websockets>=13.0",  #  real-time communication or controls via websockets.
+        "mutagen>=1.47.0",  # This is an audio metadata library
     ],
     entry_points={
         "console_scripts": [

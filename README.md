@@ -1,4 +1,4 @@
-![Diagram](screenshot.png)
+![Diagram](screenshot.jng)
 
 # Darkdown
 
