@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 setup(
     name="darkdown",
     version="1.0.0",
-    packages=find_packages(),
+    packages=find_packages(),  # Specify that `src` contains the packages
     include_package_data=True,
     install_requires=[
         "yt-dlp>=2024.10.7",  # This is the core dependency for downloading videos.
