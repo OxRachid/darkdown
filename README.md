@@ -31,6 +31,10 @@ That's it! Now you can use Darkdown from anywhere:
 ```bash
 darkdown
 ```
+if you want to remove it run:
+```bash
+pip uninstall darkdown
+```
 
 ## Alternative Installation (If you want to see the code)
 
@@ -49,6 +53,11 @@ And now you can use darkdown by just type:
 ```bash
 darkdown
 ```
+to remove it:
+```bash
+pip uninstall darkdown
+rm -rf ~/darkdown
+```
 
 ## Release installation
 1. Download the latest release from darkdown release 
@@ -59,6 +68,7 @@ pip install -e .
 ```
 4. Once installed, you can use darkdown as a command in the terminal
 
+and you can remove it as the prv way
 
 ## Troubleshooting
 
@@ -82,16 +92,12 @@ To update to the latest version:
 pip install --upgrade git+https://github.com/OxRachid/darkdown.git
 ```
 
-## Recommendation
+## Recommendation(optional)
 For best results, install within a virtual environment to avoid conflicts with other Python packages.
 
 Here’s a sample steps and instractions for creating a virtual environment to install darkdown:
    
-   ⦁ step 1: clone darkdown repository:
-```bash
-git clone https://github.com/OxRachid/darkdown.git
-```
-   ⦁ step 2: Create and Manage Global Virtual Environments 
+⦁ step 1: Create and Manage Global Virtual Environments 
    1. Create a centralized directory (Global directory for all virtual environments):
 ```bash
 mkdir ~/venvs
@@ -100,8 +106,8 @@ mkdir ~/venvs
 ```bash
 python -m venv ~/venvs/darkdown_env
 ```  
-   3. Activate the virtual environment
-before working on the project or installing its pkgs or dependencies. You’ll want to do this each time you work on a project:
+   3. Activate the virtual environment:
+
    * On macOS/Linux:
 ```bash
 source ~/venvs/darkdown_env/bin/activate 
@@ -110,12 +116,11 @@ source ~/venvs/darkdown_env/bin/activate
 ```bash
 ~/venvs/darkdown_env\Scripts\activate 
 ```
-   4. Run the installer:
-After activating the environment, navigate to darkdown project directory and install the necessary packages:
-```bash
-pip install -e .
-```
-When you’ve activated darkdown_env, you’re free to run, develop, or test within darkdown without affecting your other python projects in your system. Then, deactivate the environment once you’re finished:
+⦁ Step 2: After activating the environment, you can now install darkdown using any of the above methods.
+
+within this environment you’re free to run, develop, or test within darkdown without affecting your other python projects in your system. 
+
+Then, you can deactivate the environment once you’re finished:
 ```bash
 deactivate
 ```
