@@ -3,9 +3,9 @@ import json
 import subprocess
 from time import sleep
 
-import colors as c
-import functions as fun
-import headerscreen as header
+from src import colors as c
+from src import functions as fun
+from src import headerscreen as header
 
 
 # Get bitrate of format

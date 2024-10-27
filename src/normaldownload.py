@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import subprocess
 
-import colors as c
-import functions as fun
-import headerscreen as header
+from src import colors as c
+from src import functions as fun
+from src import headerscreen as header
 
 
 def get_resolutions():
