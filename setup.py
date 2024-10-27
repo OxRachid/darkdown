@@ -1,19 +1,20 @@
-from setuptools import find_packages, setup
+from setuptools import setup
 
 setup(
     name="darkdown",
     version="1.0.0",
-    packages=find_packages(),
+    packages=["darkdown"],  # Specify the package explicitly
+    package_dir={"darkdown": "src"},  # Map 'darkdown' package to 'src' directory
     include_package_data=True,
     install_requires=[
-        "yt-dlp>=2024.10.7",  # This is the core dependency for downloading videos.
-        "requests>=2.32.3",  # Commonly used for making HTTP requests, often used for network operations in downloaders.
-        "websockets>=13.0",  #  real-time communication or controls via websockets.
-        "mutagen>=1.47.0",  # This is an audio metadata library
+        "yt-dlp>=2024.10.7",
+        "requests>=2.32.3",
+        "websockets>=13.0",
+        "mutagen>=1.47.0",
     ],
     entry_points={
         "console_scripts": [
-            "darkdown=src.main:main",
+            "darkdown=darkdown.main:main",
         ],
     },
     author="0xRach",
@@ -23,9 +24,7 @@ setup(
     long_description_content_type="text/markdown",
     url="git@github.com:OxRachid/darkdown.git",
     python_requires=">=3.6",
-    # Make sure your package is easily installable
     zip_safe=False,
-    # Add classifiers for better visibility
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
