@@ -16,6 +16,9 @@ setup(
             "darkdown=src.main:main",
         ],
     },
+    package_data={
+        "": ["config.ini"],  # Adjust as needed to specify the exact path
+    },
     author="0xRach",
     author_email="0xxrach@gmail.com",
     description="A powerful YouTube video and playlist and audio downloader using yt-dlp",
