@@ -83,30 +83,30 @@ pip install --upgrade git+https://github.com/OxRachid/darkdown.git
 ## Recommendation
 For best results, install within a virtual environment to avoid conflicts with other Python packages.
 Here’s a sample steps and instractions for creating a virtual environment to install darkdown:
-⦁ step 1: clone darkdown repository:
+   ⦁ step 1: clone darkdown repository:
 ```bash
 git clone https://github.com/OxRachid/darkdown.git
 ```
-⦁ step 2: Create and Manage Global Virtual Environments 
-  1. Create a centralized directory (Global directory for all virtual environments):
+   ⦁ step 2: Create and Manage Global Virtual Environments 
+   1. Create a centralized directory (Global directory for all virtual environments):
 ```bash
 mkdir ~/venvs
 ```
-  2. Create a unique virtual environment for darkdown progect in this directory:
+   2. Create a unique virtual environment for darkdown progect in this directory:
 ```bash
 python -m venv ~/venvs/darkdown_env
 ```  
-  3. Activate the virtual environment
+   3. Activate the virtual environment
 before working on the project or installing its pkgs or dependencies. You’ll want to do this each time you work on a project:
-  * On macOS/Linux:
+   * On macOS/Linux:
 ```bash
 source ~/venvs/darkdown_env/bin/activate 
 ```
-  * On Windows:
+   * On Windows:
 ```bash
 ~/venvs/darkdown_env\Scripts\activate 
 ```
-  4. Run the installer:
+   4. Run the installer:
 After activating the environment, navigate to darkdown project directory and install the necessary packages:
 ```bash
 pip install -e .
