@@ -2,7 +2,7 @@
 
 import os
 
-from . import colors as c
+import colors as c
 
 
 def clear_screen():

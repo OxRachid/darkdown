@@ -6,7 +6,7 @@ import sys
 
 import yt_dlp
 
-from . import colors as c
+import colors as c
 
 # Load configuration
 config = configparser.ConfigParser()

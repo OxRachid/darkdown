@@ -3,9 +3,9 @@ import json
 import subprocess
 from time import sleep
 
-from . import colors as c
-from . import functions as fun
-from . import headerscreen as header
+import colors as c
+import functions as fun
+import headerscreen as header
 
 
 # Get bitrate of format
@@ -79,7 +79,9 @@ def get_formats_id(formats_info, highest_bitrate, chosen_resolution):
         format_proto = "m3u8_n" if proto == "m3u8_native" else proto
         formated_size = fun.format_size(size)
         # Check if highest_bitrate is not None before making the comparison
-        recommended = c.color_text("[R]",c.BRIGHT_GREEN,c.BOLD) if highest_bitrate is not None and highest_bitrate == get_bitrate(formatInfo) else "   "
+        recommended = (
+            c.color_text("[R]", c.BRIGHT_GREEN, c.BOLD) if highest_bitrate is not None and highest_bitrate == get_bitrate(formatInfo) else "   "
+        )
         index_str = f"[{i}]"  # Convert index to string with brackets
         sleep(0.1)
         print(

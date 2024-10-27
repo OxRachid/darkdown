@@ -1,8 +1,8 @@
-from . import colors as c
-from . import deepdownload as deep_d
-from . import functions as fun
-from . import headerscreen as header
-from . import normaldownload as normal_d
+import colors as c
+import deepdownload as deep_d
+import functions as fun
+import headerscreen as header
+import normaldownload as normal_d
 
 # print header screen
 header.display_header()
