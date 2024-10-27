@@ -15,11 +15,13 @@ Features:
 
 ## Installation and Usage Guide
 To install Darkdown, follow these steps. 
+
 in fact there are many ways of installation and you can choose any of them based on your main need...
 
 # Quick installation
 this is the easy way to install darkdown by just one command-line
-copy this command-line and run it in your terminal
+
+copy and run it in your terminal
 
 ```bash
 pip install git+https://github.com/OxRachid/darkdown.git
@@ -119,3 +121,23 @@ deactivate
 ```
 after deactivate the environment you can still use and run darkdown.
 
+### Default Storage Paths
+
+Darkdown saves videos and audio files to default directories based on your operating system. You can modify these paths in the `config.ini` file.
+
+| **Operating System** | **Default Video Path**                        | **Default Audio Path**                       |
+|----------------------|-----------------------------------------------|----------------------------------------------|
+| **Linux/macOS**      | `~/Videos/darkdown`                           | `~/Music/darkdown`                           |
+| **Windows**          | `C:\Users\<YourName>\Videos\darkdown`         | `C:\Users\<YourName>\Music\darkdown`         |
+| **Termux**           | `~/storage/shared/darkdown/videos`            | `~/storage/shared/darkdown/audios`           |
+
+**Note**: If you are using Termux, you must first run `termux-setup-storage` to allow Darkdown access to shared storage. After granting permissions, Darkdown will save files to `~/storage/shared/darkdown`.
+
+### Configuration
+
+You can customize the storage paths by editing `config.ini` in the `Paths` section. For example:
+
+```ini
+[Paths]
+video_dir = /path/to/your/video/directory
+audio_dir = /path/to/your/audio/directory

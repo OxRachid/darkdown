@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import configparser
 import os
+import platform
 import re
 import sys
 
@@ -8,28 +9,73 @@ import yt_dlp
 
 from . import colors as c
 
-# Load configuration
-config = configparser.ConfigParser()
-config_path = os.path.join(os.path.dirname(__file__), "config.ini")
-config.read(config_path)
-
-# Set paths for video and audio directories
-VIDEODIR_PATH = os.path.expanduser(config["Paths"]["video_dir"])
-AUDIODIR_PATH = os.path.expanduser(config["Paths"]["audio_dir"])
-
-# Create the directories if they do not exist
-os.makedirs(VIDEODIR_PATH, exist_ok=True)
-os.makedirs(AUDIODIR_PATH, exist_ok=True)
-
-# When downloading files, use the correct path with the filename pattern
-video_output_path = os.path.join(VIDEODIR_PATH, "%(title)s_%(height)sp_%(format_id)s.%(ext)s")
-audio_output_path = os.path.join(AUDIODIR_PATH, "%(title)s_%(height)sp_%(format_id)s.%(ext)s")
-
 
 def handle_error(message):
     # Function to handle errors
     print(c.color_text(f"✖ Error: {message}", c.BRIGHT_RED))
     sys.exit(1)
+
+
+# Load configuration
+config = configparser.ConfigParser()
+config_path = os.path.join(os.path.dirname(__file__), "config.ini")
+config.read(config_path)
+
+
+# Function to check for Termux storage permissions
+def ensure_termux_storage():
+    if "TERMUX_VERSION" in os.environ:
+        storage_path = os.path.expanduser("~/storage/shared")
+
+        if not os.path.isdir(storage_path) or not os.access(storage_path, os.W_OK):
+            handle_error(
+                "Termux storage is not accessible.\n  Please run `termux-setup-storage` in Termux to grant access.\n  After granting permissions, try running the program again."
+            )
+
+
+# Call Termux storage check early in the program
+ensure_termux_storage()
+
+
+# Detect operating system and set default paths if not specified
+if "video_dir" not in config["Paths"] or not config["Paths"]["video_dir"]:
+    if "TERMUX_VERSION" in os.environ:
+        # Termux-specific directories
+        default_video_dir = os.path.expanduser("~/storage/shared/darkdown/videos")
+        default_audio_dir = os.path.expanduser("~/storage/shared/darkdown/audios")
+    elif platform.system() == "Linux" or platform.system() == "Darwin":
+        # macOS and general Linux
+        default_video_dir = os.path.expanduser("~/Videos/darkdown")
+        default_audio_dir = os.path.expanduser("~/Music/darkdown")
+    elif platform.system() == "Windows":
+        # Windows
+        default_video_dir = os.path.join(os.environ["USERPROFILE"], "Videos", "darkdown")
+        default_audio_dir = os.path.join(os.environ["USERPROFILE"], "Music", "darkdown")
+    else:
+        # Fallback
+        default_video_dir = os.path.expanduser("~/Downloads/darkdown/Videos")
+        default_audio_dir = os.path.expanduser("~/Downloads/darkdown/Audios")
+
+    # Update config with defaults if they aren't set
+    config["Paths"]["video_dir"] = default_video_dir
+    config["Paths"]["audio_dir"] = default_audio_dir
+
+# Set paths for video and audio directories
+VIDEODIR_PATH = os.path.expanduser(config["Paths"]["video_dir"])
+AUDIODIR_PATH = os.path.expanduser(config["Paths"]["audio_dir"])
+
+
+# Create directories with error handling
+try:
+    os.makedirs(VIDEODIR_PATH, exist_ok=True)
+    os.makedirs(AUDIODIR_PATH, exist_ok=True)
+except PermissionError:
+    handle_error(" Cannot create directories. Permission denied.\n Please check permissions or update the paths in config.ini.")
+
+
+# When downloading files, use the correct path with the filename pattern
+video_output_path = os.path.join(VIDEODIR_PATH, "%(title)s_%(height)sp_%(format_id)s.%(ext)s")
+audio_output_path = os.path.join(AUDIODIR_PATH, "%(title)s_%(height)sp_%(format_id)s.%(ext)s")
 
 
 # exit option for user

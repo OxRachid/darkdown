@@ -83,7 +83,6 @@ def get_formats_id(formats_info, highest_bitrate, chosen_resolution):
             c.color_text("[R]", c.BRIGHT_GREEN, c.BOLD) if highest_bitrate is not None and highest_bitrate == get_bitrate(formatInfo) else "   "
         )
         index_str = f"[{i}]"  # Convert index to string with brackets
-        sleep(0.1)
         print(
             c.color_text(
                 f"│ {index_str:<6} {formatInfo.get('ext', 'N/A'):<6} "
