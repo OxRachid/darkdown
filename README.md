@@ -119,7 +119,6 @@ When you’ve activated darkdown_env, you’re free to run, develop, or test wit
 ```bash
 deactivate
 ```
-after deactivate the environment you can still use and run darkdown.
 
 ### Default Storage Paths
 
