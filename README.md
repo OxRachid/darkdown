@@ -60,7 +60,7 @@ rm -rf ~/darkdown
 ```
 
 ## Release installation
-1. Download the latest release from darkdown release 
+1. Download the latest release from [darkdown releases](https://github.com/OxRachid/darkdown/releases) 
 2. Extract the downloaded .zip or .tar.gz file.
 3. In the extracted folder, run:
 ```bash
