@@ -108,11 +108,11 @@ python -m venv ~/venvs/darkdown_env
 ```  
    3. Activate the virtual environment:
 
-   * On macOS/Linux:
+     **On macOS/Linux**:
 ```bash
 source ~/venvs/darkdown_env/bin/activate 
 ```
-   * On Windows:
+     **On Windows**:
 ```bash
 ~/venvs/darkdown_env\Scripts\activate 
 ```
