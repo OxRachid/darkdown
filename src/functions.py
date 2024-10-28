@@ -49,8 +49,13 @@ if "video_dir" not in config["Paths"] or not config["Paths"]["video_dir"]:
         default_audio_dir = os.path.expanduser("~/Music/darkdown")
     elif platform.system() == "Windows":
         # Windows
-        default_video_dir = os.path.join(os.environ["USERPROFILE"], "Videos", "darkdown")
-        default_audio_dir = os.path.join(os.environ["USERPROFILE"], "Music", "darkdown")
+        if "USERPROFILE" in os.environ:
+            default_video_dir = os.path.join(os.environ["USERPROFILE"], "Videos", "darkdown")
+            default_audio_dir = os.path.join(os.environ["USERPROFILE"], "Music", "darkdown")
+        else:
+            # Fallback to a generic directory if USERPROFILE isn't set
+            default_video_dir = os.path.join("C:\\", "Users", "Public", "Videos", "darkdown")
+            default_audio_dir = os.path.join("C:\\", "Users", "Public", "Music", "darkdown")
     else:
         # Fallback
         default_video_dir = os.path.expanduser("~/Downloads/darkdown/Videos")
