@@ -180,6 +180,7 @@ def download_format(format_code, output_path, video_url):
 
 
 def title_screen(promt):
+    print(" " * 9 + c.color_text("Github: https://github.com/OxRachid/darkdown", c.MEDIUM_RED, c.UNDERLINE))
     print(" " * 14 + c.color_text("╔════════════════════════════════╗   ", c.MEDIUM_RED))
     print(" " * 17 + c.color_text(promt, c.LIGHT_RED))
     print(" " * 14 + c.color_text("╚════════════════════════════════╝   ", c.MEDIUM_RED))
