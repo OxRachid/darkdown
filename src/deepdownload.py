@@ -131,6 +131,24 @@ def fetch_formats(video_url):
         fun.handle_error("Failed to parse video information")
 
 
+# check and correct formats        
+def check_and_correct_formats(formats):
+    # Find the first valid video format to check for height/width correctness
+    for format in formats:
+        height = format.get("height")
+        width = format.get("width")
+        
+        # Check if both height and width are present and if height > width
+        if height and width:
+            if height > width:
+                # Perform the swap for all formats, assuming all have the same issue
+                for f in formats:
+                    if "height" in f and "width" in f:
+                        f["height"], f["width"] = f["width"], f["height"]
+            break  # Exit the loop once we find a valid entry and handle the correction
+
+    return formats
+
 # Perform audio downloading
 def download_audio(video_url):
     # Download the best audio
@@ -190,7 +208,7 @@ def main():
     video_url = fun.get_video_url()
 
     # Fetch formats
-    formats = fetch_formats(video_url)
+    formats = check_and_correct_formats(fetch_formats(video_url))
 
     # check formats Validate
     fun.is_valid(formats)
