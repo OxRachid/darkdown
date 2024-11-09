@@ -152,9 +152,9 @@ def get_video_url():
     print(c.color_text("\n\n[*] Enter the video URL:", c.BLUE, c.BOLD))
     # Get the user input on a new line
     video_url = input().strip()
-    if not is_valid_youtube_url(video_url):
-        handle_error("Invalid URL. Please enter a valid YouTube URL.")
-
+    # if not is_valid_youtube_url(video_url):
+    #     handle_error("Invalid URL. Please enter a valid YouTube URL.")
+    #
     return video_url
 
 
