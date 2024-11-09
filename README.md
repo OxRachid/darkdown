@@ -2,10 +2,10 @@
 
 # Darkdown
 
-A powerful YouTube video and audio downloader using yt-dlp
+A powerful video and audio downloader using yt-dlp
 
 Features:
-- Download YouTube videos in high quality from source servers
+- Download videos from multiple sites (Youtube,insta,fb...) in high quality from source servers
 - Download audio in best quality
 - Download video in a specific format (mp4/webm...etc)
 
