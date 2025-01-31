@@ -12,6 +12,7 @@ Features:
 
 ## Requirements
 - Python 3.6 or higher
+- FFmpeg
 
 ## Installation and Usage Guide
 To install Darkdown, follow these steps. 
