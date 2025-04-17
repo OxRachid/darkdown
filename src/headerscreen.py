@@ -23,7 +23,7 @@ def display_header():
     print(c.color_text("         ██║  ██║███████║██████╔╝█████╔╝", c.MEDIUM_RED))
     print(c.color_text("         ██║  ██║██╔══██║██╔══██╗██╔═██╗", c.DEEP_DARK_RED))
     print(c.color_text("         ██████╔╝██║  ██║██║  ██║██║  ██╗", c.DEEP_DARK_RED))
-    print(f"{c.color_text('         ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝', c.DEEP_DARK_RED)} {c.color_text('v1.1.0',c.WHITE,c.BOLD)}")
+    print(f"{c.color_text('         ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝', c.DEEP_DARK_RED)} {c.color_text('v1.1.1',c.WHITE,c.BOLD)}")
     print(f"{c.color_text('⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣠⣤⣄⡀⠀⠀', c.WHITE)} {c.color_text(' ██████╗  ██████╗ ██╗    ██╗███╗   ██╗', c.DEEP_DARK_RED)}")
     print(f"{c.color_text(' ⠀⣠⣴⣾⣿⢿⣿⣻⣟⣿⣻⢯⣿⢿⣦⠀', c.WHITE)} {c.color_text('██║  ██║██║   ██║██║ █╗ ██║██╔██╗ ██║', c.DEEP_DARK_RED)}")
     print(f"{c.color_text(' ⢰⣿⣟⡷⣯⣿⡾⢿⣾⣽⣯⢿⣽⣯⣿⠀', c.WHITE)} {c.color_text('██║  ██║██║   ██║██║███╗██║██║╚██╗██║', c.MEDIUM_RED)}")
