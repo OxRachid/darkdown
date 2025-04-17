@@ -127,7 +127,7 @@ def print_resolutions(resolutions):
     print(c.color_text("┌───────────────┐", c.YELLOW))
     print(c.color_text(" * Resolutions * ", c.BRIGHT_RED, c.BOLD))
     print(c.color_text("└───────────────┘", c.YELLOW))
-    print(c.color_text("│ [0] Audio     │", c.CYAN))
+    print(c.color_text("│ [0] mp3       │", c.CYAN))
     for i, option in enumerate(resolutions, 1):
         padded_option = f"{option}p".ljust(10)
         print(c.color_text(f"│ [{i}] {padded_option}│", c.YELLOW))
@@ -159,8 +159,11 @@ def get_video_url():
 
 
 def download_format(format_code, output_path, video_url):
+    # Combine the specified video format code with the best audio
+    format_string = f"{format_code}+bestaudio/best" if format_code else "bestvideo+bestaudio/best"
+
     ydl_opts = {
-        "format": format_code,
+        "format": format_string,  # Use video format + best audio
         "outtmpl": output_path,
         "noplaylist": True,
         "quiet": True,  # Set to True to enable quiet mode

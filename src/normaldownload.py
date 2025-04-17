@@ -55,21 +55,24 @@ def download_audio(url):
         "yt-dlp",
         "-f",
         "bestaudio",
+        "--extract-audio",  # Extract audio explicitly
+        "--audio-format",
+        "mp3",
         "-o",
         fun.audio_output_path,  # Output path for audio
         "--quiet",  # Quiet mode
         "--progress",  # Show progress
         url,
     ]
-    print(c.color_text(" ➡ Downloading the best audio...", c.BRIGHT_YELLOW))
+    print(c.color_text(" ➡ Downloading mp3...", c.BRIGHT_YELLOW))
     # Run the command using subprocess
     result = subprocess.run(command)
     # Check if there was an error
     if result.returncode != 0:
         fun.handle_error(result.stderr)  # Print the error message
     else:
-        print(c.color_text(" Audio downloaded ✓", c.GREEN, c.BOLD))
-        print(c.color_text(f" Audio path : [{fun.config["Paths"]["audio_dir"]}]", c.BRIGHT_GREEN, c.BOLD))
+        print(c.color_text(" mp3 downloaded ✓", c.GREEN, c.BOLD))
+        print(c.color_text(f" mp3 path : [{fun.config["Paths"]["audio_dir"]}]", c.BRIGHT_GREEN, c.BOLD))
 
 
 def perform_downloading(resolutions, video_url):
