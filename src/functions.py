@@ -168,6 +168,7 @@ def download_format(format_code, output_path, video_url):
         "noplaylist": True,
         "quiet": True,  # Set to True to enable quiet mode
         "progress": True,
+        "no_warnings": True,
     }
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
