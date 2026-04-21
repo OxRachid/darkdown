@@ -91,7 +91,7 @@ If you have made local changes to the code, follow this workflow to merge your w
 
 Darkdown uses a `config.ini` file to manage save paths.
 
-| 🌐 Platform          | 🎬 Default Video Path                         | 🎵 Default Audio Path**                      |
+| 🌐 Platform          | 🎬 Default Video Path                         | 🎵 Default Audio Path                        |
 |----------------------|-----------------------------------------------|----------------------------------------------|
 | **Linux/macOS**      | `~/Videos/darkdown`                           | `~/Music/darkdown`                           |
 | **Windows**          | `C:\Users\<YourName>\Videos\darkdown`         | `C:\Users\<YourName>\Music\darkdown`         |
