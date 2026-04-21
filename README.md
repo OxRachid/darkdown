@@ -85,11 +85,6 @@ If you have made local changes to the code, follow this workflow to merge your w
    pip install -U --upgrade-strategy eager .
    ```
 
-  **Verify Dependencies:**
-  ```bash
-  ffmpeg -version
-  ```
-
 ---
 
 ## 📂 Storage & Configuration
@@ -109,27 +104,12 @@ You can customize your storage paths by editing the config.ini file located in y
 [Paths]
 video_dir = /path/to/your/custom/video/folder
 audio_dir = /path/to/your/custom/audio/folder
+```
 
 > ⚠️ **Termux Users:** Run `termux-setup-storage` first to allow access to internal memory.
 
 ---
 
-
-## 💡 Pro-Tip: Virtual Environments
-To keep your system clean and avoid package conflicts:
-
-```bash
-# 1. Create Env
-python -m venv ~/darkdown_env
-
-# 2. Activate (Linux/Termux)
-source ~/darkdown_env/bin/activate
-
-# 3. Install
-pip install git+https://github.com/OxRachid/darkdown.git
-```
-
----
 
 ## ❌ Uninstall
 ```bash
