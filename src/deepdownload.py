@@ -68,8 +68,9 @@ def sort_key(format_info):
 
 
 # Get Formats id
-def get_formats_id(formats_info, highest_bitrate, chosen_resolution):
-    print(c.color_text("\n┌────────────────────────────────────────────────────┐", c.YELLOW))
+def get_formats_id(video_url, formats_info, highest_bitrate, chosen_resolution):
+    print(c.color_text("\n 🧲 " + video_url, c.YELLOW))
+    print(c.color_text("┌────────────────────────────────────────────────────┐", c.YELLOW))
     print(c.color_text(f"            * Available Formats [{chosen_resolution}p] * ", c.BRIGHT_RED, c.BOLD))
     print(c.color_text("└────────────────────────────────────────────────────┘", c.YELLOW))
     format_IDs = {}
@@ -131,13 +132,13 @@ def fetch_formats(video_url):
         fun.handle_error("Failed to parse video information")
 
 
-# check and correct formats        
+# check and correct formats
 def check_and_correct_formats(formats):
     # Find the first valid video format to check for height/width correctness
     for format in formats:
         height = format.get("height")
         width = format.get("width")
-        
+
         # Check if both height and width are present and if height > width
         if height and width:
             if height > width:
@@ -149,8 +150,10 @@ def check_and_correct_formats(formats):
 
     return formats
 
+
 # Perform audio downloading
 def download_audio(video_url):
+    print(c.color_text(" 🧲 " + video_url, c.YELLOW))
     # Download the best audio
     print(c.color_text(" ➡ Downloading the best audio...", c.BRIGHT_YELLOW))
     fun.download_format("bestaudio/best", fun.audio_output_path, video_url)
@@ -182,7 +185,7 @@ def download_video(formats, sorted_res_formats, format_choice, video_url):
     highest_bitrate = find_max_bitrate(sorted_available_formats)
 
     # Display sorted formats and get formats_id
-    formats_IDs = get_formats_id(sorted_available_formats, highest_bitrate, chosen_resolution)
+    formats_IDs = get_formats_id(video_url, sorted_available_formats, highest_bitrate, chosen_resolution)
 
     # Step 8: Ask the user to select a specific format
     user_choice = fun.get_user_option(1, len(formats_IDs) + 1, "\n[*] select a format: ")
