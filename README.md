@@ -1,148 +1,137 @@
 ![Diagram](screenshot.jpg)
 
-# Darkdown
+# 📥 Darkdown
 
-A powerful video and audio downloader using yt-dlp
+A powerful video and audio downloader built on top of `yt-dlp`.
 
-Features:
-- Download videos from multiple sites (Youtube,insta,fb...) in high quality from source servers
-- Download audio in best quality
-- Download video in a specific format (mp4/webm...etc)
+---
 
+## ✨ Features
+* 🌍 **Multi-Site Support:** Download from YouTube, Instagram, Facebook, and more.
+* 💎 **High Quality:** Fetches content directly from source servers in the best resolution.
+* 🎬 **Flexible Formats:** Choose specific formats like `mp4`, `webm`, or high-quality audio.
+* 📱 **Cross-Platform:** Full support for Linux, macOS, Windows, and **Termux**.
 
-## Requirements
-- Python 3.6 or higher
-- FFmpeg
+---
 
-## Installation and Usage Guide
-To install Darkdown, follow these steps. 
+## 🛠️ Prerequisites
+Before installing, ensure you have the following tools ready:
 
-in fact there are many ways of installation and you can choose any of them based on your main need...
+1. **Python 3.6+** 🐍
+2. **FFmpeg:** Required for merging video and audio streams.
+   - **Termux:**
+     ```bash
+     pkg install ffmpeg
+     ```
+   - **Linux (Ubuntu/Debian):**
+     ```bash
+     sudo apt update && sudo apt install ffmpeg
+     ```
+   - **macOS:**
+     ```bash
+     brew install ffmpeg
+     ```
+   - **Windows:** Download from [ffmpeg.org](https://ffmpeg.org/download.html) and add to PATH.
 
-# Quick installation
-this is the easy way to install darkdown by just one command-line
+---
 
-copy and run it in your terminal
+## 🚀 Installation & Usage
 
+### 1️⃣ Quick Installation (Recommended)
+Use this method if you just want to use the tool without managing the source code.
 ```bash
 pip install git+https://github.com/OxRachid/darkdown.git
 ```
 
-That's it! Now you can use Darkdown from anywhere:
-```bash
-darkdown
-```
-if you want to remove it run:
-```bash
-pip uninstall darkdown
-```
-
-## Alternative Installation (If you want to see the code)
-
-1. Clone the repository:
+### 2️⃣ Developer Installation (Editable Mode)
+Use this method if you want to modify the code or contribute to the project.
 ```bash
 git clone https://github.com/OxRachid/darkdown.git
 cd darkdown
-```
-
-2. Run the installer:
-```bash
 pip install -e .
 ```
+> 💡 **Note on the -e flag:** This stands for **Editable**. It links the installation to your local folder, so any changes you make to the .py files take effect immediately without needing to reinstall.
 
-And now you can use darkdown by just type:
+---
+
+## 🔄 Updating & Troubleshooting
+
+### How to Update
+Sites like YouTube frequently update their code. To keep **Darkdown** working, you must keep the "Engine" (dependencies) updated.
+
+#### 📦 For Quick Installations:
+Run this command to update both the tool and its core dependencies:
 ```bash
-darkdown
-```
-to remove it:
-```bash
-pip uninstall darkdown
-rm -rf ~/darkdown
-```
-
-## Release installation
-1. Download the latest release from [darkdown releases](https://github.com/OxRachid/darkdown/releases) 
-2. Extract the downloaded .zip or .tar.gz file.
-3. In the extracted folder, run:
-```bash
-pip install -e .
-```
-4. Once installed, you can use darkdown as a command in the terminal
-
-and you can remove it as the prv way
-
-## Troubleshooting
-
-If you encounter any issues:
-
-1. Make sure Python is installed:
-```bash
-python --version
+pip install -U --upgrade-strategy eager git+https://github.com/OxRachid/darkdown.git
 ```
 
-2. Try reinstalling:
-```bash
-pip uninstall darkdown
-pip install git+https://github.com/OxRachid/darkdown.git
-```
+#### 🛠️ For Developer Installations (Best Practice):
+If you have made local changes to the code, follow this workflow to merge your work with the latest official updates safely:
 
-## Updates
+1. **Stash your local changes:**
+   ```bash
+   git Stash
+   ```
+2. **Pull the latest official code:**
+   ```bash
+   git pull origin main
+   ```
+3. **Re-apply your changes:**
+   ```bash
+   git stash pop
+   ```
+4. **Update the "Engine" (Dependencies):**
+   ```bash
+   pip install -U --upgrade-strategy eager .
+   ```
 
-To update to the latest version:
-```bash
-pip install --upgrade git+https://github.com/OxRachid/darkdown.git
-```
+  **Verify Dependencies:**
+  ```bash
+  ffmpeg -version
+  ```
 
-## Recommendation(optional)
-For best results, install within a virtual environment to avoid conflicts with other Python packages.
+---
 
-Here’s a sample steps and instractions for creating a virtual environment to install darkdown:
-   
-⦁ step 1: Create and Manage Global Virtual Environments 
-   1. Create a centralized directory (Global directory for all virtual environments):
-```bash
-mkdir ~/venvs
-```
-   2. Create a unique virtual environment for darkdown progect in this directory:
-```bash
-python -m venv ~/venvs/darkdown_env
-```  
-   3. Activate the virtual environment:
+## 📂 Storage & Configuration
 
-     **On macOS/Linux**:
-```bash
-source ~/venvs/darkdown_env/bin/activate 
-```
-     **On Windows**:
-```bash
-~/venvs/darkdown_env\Scripts\activate 
-```
-⦁ Step 2: After activating the environment, you can now install darkdown using any of the above methods.
+Darkdown uses a `config.ini` file to manage save paths.
 
-within this environment you’re free to run, develop, or test within darkdown without affecting your other python projects in your system. 
-
-Then, you can deactivate the environment once you’re finished:
-```bash
-deactivate
-```
-
-### Default Storage Paths
-
-Darkdown saves videos and audio files to default directories based on your operating system. You can modify these paths in the `config.ini` file.
-
-| **Operating System** | **Default Video Path**                        | **Default Audio Path**                       |
+| 🌐 Platform          | 🎬 Default Video Path                         | 🎵 Default Audio Path**                      |
 |----------------------|-----------------------------------------------|----------------------------------------------|
 | **Linux/macOS**      | `~/Videos/darkdown`                           | `~/Music/darkdown`                           |
 | **Windows**          | `C:\Users\<YourName>\Videos\darkdown`         | `C:\Users\<YourName>\Music\darkdown`         |
 | **Termux**           | `~/storage/shared/darkdown/videos`            | `~/storage/shared/darkdown/audios`           |
 
-**Note**: If you are using Termux, you must first run `termux-setup-storage` to allow Darkdown access to shared storage. After granting permissions, Darkdown will save files to `~/storage/shared/darkdown`.
-
-### Configuration
-
-You can customize the storage paths by editing `config.ini` in the `Paths` section. For example:
+#### ⚙️ Custom Configuration
+You can customize your storage paths by editing the config.ini file located in your project directory.
 
 ```ini
 [Paths]
-video_dir = /path/to/your/video/directory
-audio_dir = /path/to/your/audio/directory
+video_dir = /path/to/your/custom/video/folder
+audio_dir = /path/to/your/custom/audio/folder
+
+> ⚠️ **Termux Users:** Run `termux-setup-storage` first to allow access to internal memory.
+
+---
+
+
+## 💡 Pro-Tip: Virtual Environments
+To keep your system clean and avoid package conflicts:
+
+```bash
+# 1. Create Env
+python -m venv ~/darkdown_env
+
+# 2. Activate (Linux/Termux)
+source ~/darkdown_env/bin/activate
+
+# 3. Install
+pip install git+https://github.com/OxRachid/darkdown.git
+```
+
+---
+
+## ❌ Uninstall
+```bash
+pip uninstall darkdown
+```
