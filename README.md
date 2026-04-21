@@ -100,11 +100,9 @@ Darkdown uses a `config.ini` file to manage save paths.
 #### ⚙️ Custom Configuration
 You can customize your storage paths by editing the config.ini file located in your project directory.
 
-```ini
 [Paths]
 video_dir = /path/to/your/custom/video/folder
 audio_dir = /path/to/your/custom/audio/folder
-```
 
 > ⚠️ **Termux Users:** Run `termux-setup-storage` first to allow access to internal memory.
 
