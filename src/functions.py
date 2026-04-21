@@ -167,6 +167,7 @@ def download_format(format_code, output_path, video_url):
         "outtmpl": output_path,
         "noplaylist": True,
         "quiet": True,  # Set to True to enable quiet mode
+        "no_warnings": True,
         "progress": True,
     }
     try:
