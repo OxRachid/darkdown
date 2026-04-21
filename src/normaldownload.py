@@ -50,7 +50,7 @@ def download_video(user_choice, video_url, resolutions):
 
 
 # Function to download audio (optional)
-def download_audio(url):
+def download_audio(video_url):
     command = [
         "yt-dlp",
         "-f",
@@ -62,7 +62,7 @@ def download_audio(url):
         fun.audio_output_path,  # Output path for audio
         "--quiet",  # Quiet mode
         "--progress",  # Show progress
-        url,
+        video_url,
     ]
     print(c.color_text(" ➡ Downloading mp3...", c.BRIGHT_YELLOW))
     # Run the command using subprocess
