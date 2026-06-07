@@ -79,9 +79,8 @@ except PermissionError:
 
 
 # When downloading files, use the correct path with the filename pattern
-video_output_path = os.path.join(VIDEODIR_PATH, "%(title)s_%(height)sp_%(format_id)s.%(ext)s")
-audio_output_path = os.path.join(AUDIODIR_PATH, "%(title)s_%(height)sp_%(format_id)s.%(ext)s")
-
+video_output_path = os.path.join(VIDEODIR_PATH,"%(title).60s_%(height)sp_%(id)s.%(ext)s")
+audio_output_path = os.path.join(AUDIODIR_PATH,"%(title).60s_%(id)s.%(ext)s")
 
 # exit option for user
 def exit_option(user_choice, length):
