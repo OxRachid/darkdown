@@ -59,6 +59,12 @@ pip install -e .
 ### How to Update
 Sites like YouTube frequently update their code. To keep **Darkdown** working, you must keep the "Engine" (dependencies) updated.
 
+**Note:** Make sure `yt-dlp` is up to date:
+
+```bash
+pip install -U yt-dlp
+```
+
 #### 📦 For Quick Installations:
 Run this command to update both the tool and its core dependencies:
 ```bash
